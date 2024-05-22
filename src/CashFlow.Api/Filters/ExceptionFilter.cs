@@ -1,0 +1,49 @@
+﻿using CashFlow.Communication.Responses;
+using CashFlow.Exception.BaseExceptions;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+
+namespace CashFlow.Api.Filters;
+
+public class ExceptionFilter : IExceptionFilter
+{
+    public void OnException(ExceptionContext context)
+    {
+        if (context.Exception is CashFlowException)
+        {
+            HandleProjectExceptio(context);
+        }
+        else
+        {
+            ThrowUnknowError(context);
+        }
+    }
+
+    private void HandleProjectExceptio(ExceptionContext context)
+    {
+        if (context.Exception is ErrorOnValidationException)
+        {
+            var ex = (ErrorOnValidationException) context.Exception;
+
+            var errorResponse = new ErrorResponse(ex.Errors);
+
+            context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+            context.Result = new BadRequestObjectResult(errorResponse);
+        }
+        else
+        {
+            var errorResponse = new ErrorResponse(context.Exception.Message);
+
+            context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+            context.Result = new BadRequestObjectResult(errorResponse);
+        }
+    }
+
+    private void ThrowUnknowError(ExceptionContext context)
+    {
+        var errorResponse = new ErrorResponse("Unknow Error");
+        
+        context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
+        context.Result = new ObjectResult(errorResponse);
+    }
+}
