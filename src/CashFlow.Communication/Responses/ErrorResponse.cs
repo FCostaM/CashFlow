@@ -2,10 +2,15 @@
 
 public class ErrorResponse
 {
-    public string ErrorMessage { get; set; } = string.Empty;
+    public List<string> ErrorMessages { get; set; }
 
     public ErrorResponse(string errorMessage)
     {
-        ErrorMessage = errorMessage;
+        ErrorMessages = [errorMessage];
+    }
+
+    public ErrorResponse(List<string> errorMessage)
+    {
+        ErrorMessages = errorMessage;
     }
 }
