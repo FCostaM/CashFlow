@@ -1,5 +1,5 @@
 ﻿using CashFlow.Communication.Responses;
-using CashFlow.Exception.BaseExceptions;
+using CashFlow.Exception.CustomExceptions;
 using CashFlow.Exception.Resources;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;

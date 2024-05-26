@@ -1,7 +1,7 @@
 ﻿using CashFlow.Application.UseCases.Expenses;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
-using CashFlow.Exception.BaseExceptions;
+using CashFlow.Exception.CustomExceptions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.Api.Controllers;

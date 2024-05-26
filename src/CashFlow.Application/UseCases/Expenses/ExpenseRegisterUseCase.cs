@@ -1,7 +1,7 @@
 ﻿using CashFlow.Application.Validators;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
-using CashFlow.Exception.BaseExceptions;
+using CashFlow.Exception.CustomExceptions;
 
 namespace CashFlow.Application.UseCases.Expenses;
 

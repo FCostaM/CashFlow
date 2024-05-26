@@ -1,4 +1,4 @@
-﻿namespace CashFlow.Exception.BaseExceptions;
+﻿namespace CashFlow.Exception.CustomExceptions;
 
 public abstract class CashFlowException : SystemException
 {
