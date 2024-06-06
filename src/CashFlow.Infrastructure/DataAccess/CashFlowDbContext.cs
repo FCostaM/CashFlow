@@ -9,7 +9,7 @@ public class CashFlowDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var connectionString = "Server=; Database=; Uid=; Pwd=;";
+        var connectionString = "Server=localhost; Database=cashflowdb; Uid=cashflowapi; Pwd=api@.123;";
 
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 37));
 
