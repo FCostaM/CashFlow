@@ -9,15 +9,19 @@ namespace CashFlow.Infrastructure;
 
 public static class DependencyInjectionExtension
 {
-    public static void AddInfrastructureServices(this IServiceCollection services)
+    public static void AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
-        AddDbContext(services);
+        AddDbContext(services, configuration);
         AddRepositories(services);
     }
 
-    private static void AddDbContext(this IServiceCollection services)
+    private static void AddDbContext(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<CashFlowDbContext>();
+        var connectionString = configuration.GetConnectionString("MySQLConnection");
+
+        var serverVersion = new MySqlServerVersion(new Version(8, 0, 37));
+
+        services.AddDbContext<CashFlowDbContext>(config => config.UseMySql(connectionString, serverVersion));
     }
 
     private static void AddRepositories(this IServiceCollection services)
