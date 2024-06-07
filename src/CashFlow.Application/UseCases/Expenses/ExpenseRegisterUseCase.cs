@@ -3,6 +3,7 @@ using CashFlow.Application.Validators;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using CashFlow.Domain.Entities;
+using CashFlow.Domain.Interfaces;
 using CashFlow.Domain.Interfaces.Repositories.Expenses;
 using CashFlow.Exception.CustomExceptions;
 
@@ -11,10 +12,12 @@ namespace CashFlow.Application.UseCases.Expenses;
 public class ExpenseRegisterUseCase : IExpenseRegisterUseCase
 {
     private readonly IExpenseRepository _repository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public ExpenseRegisterUseCase(IExpenseRepository repository)
+    public ExpenseRegisterUseCase(IExpenseRepository repository, IUnitOfWork unitOfWork)
     {
         _repository = repository;
+        _unitOfWork = unitOfWork;
     }
 
     public ExpenseResponse Execute(ExpenseRegisterRequest request)
@@ -31,6 +34,8 @@ public class ExpenseRegisterUseCase : IExpenseRegisterUseCase
         };
 
         _repository.AddExpense(entity);
+
+        _unitOfWork.Commit();
 
         return new ExpenseResponse();
     }

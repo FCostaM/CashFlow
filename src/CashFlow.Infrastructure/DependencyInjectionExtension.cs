@@ -1,4 +1,5 @@
-﻿using CashFlow.Domain.Interfaces.Repositories.Expenses;
+﻿using CashFlow.Domain.Interfaces;
+using CashFlow.Domain.Interfaces.Repositories.Expenses;
 using CashFlow.Infrastructure.DataAccess;
 using CashFlow.Infrastructure.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +27,7 @@ public static class DependencyInjectionExtension
 
     private static void AddRepositories(this IServiceCollection services)
     {
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IExpenseRepository, ExpenseRepository>();
     }
 }
