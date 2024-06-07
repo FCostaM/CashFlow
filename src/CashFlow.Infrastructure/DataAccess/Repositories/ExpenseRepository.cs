@@ -12,8 +12,8 @@ internal class ExpenseRepository : IExpenseRepository
         _dbContext = context;
     }
 
-    public void AddExpense(Expense expense)
+    public async Task AddExpense(Expense expense)
     {
-        _dbContext.Expenses.Add(expense);
+        await _dbContext.Expenses.AddAsync(expense);
     }
 }
