@@ -26,7 +26,7 @@ public class ExpenseRegisterUseCase : IExpenseRegisterUseCase
         _mapper = mapper;
     }
 
-    public async Task<ExpenseResponse> Execute(ExpenseRegisterRequest request)
+    public async Task<ExpenseRegisterResponse> Execute(ExpenseRegisterRequest request)
     {
         Validate(request);
 
@@ -36,7 +36,7 @@ public class ExpenseRegisterUseCase : IExpenseRegisterUseCase
 
         await _unitOfWork.Commit();
 
-        return _mapper.Map<ExpenseResponse>(entity);
+        return _mapper.Map<ExpenseRegisterResponse>(entity);
     }
 
     private void Validate(ExpenseRegisterRequest request)

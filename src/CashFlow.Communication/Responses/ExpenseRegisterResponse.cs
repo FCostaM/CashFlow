@@ -1,6 +1,6 @@
 ﻿namespace CashFlow.Communication.Responses;
 
-public class ExpenseResponse
+public class ExpenseRegisterResponse
 {
     public string Title { get; set; }
 }
