@@ -120,6 +120,9 @@
   <data name="AMOUNT_UNDER_ZERO" xml:space="preserve">
     <value>Valor deve ser maior que zero</value>
   </data>
+  <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
+    <value>Despesa não encontrada</value>
+  </data>
   <data name="PAST_DATE_EXPENSE" xml:space="preserve">
     <value>Despesa não pode ser de data futura</value>
   </data>
