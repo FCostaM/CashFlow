@@ -46,4 +46,15 @@ public class ExpensesController : ControllerBase
 
         return Ok(response);
     }
+
+    [HttpDelete]
+    [Route("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteExpense([FromRoute] long id, [FromServices] IDeleteExpenseUseCase useCase)
+    {
+        await useCase.Execute(id);
+
+        return NoContent();
+    }
 }
