@@ -2,9 +2,8 @@
 
 namespace CashFlow.Domain.Interfaces.Repositories.Expenses;
 
-public interface IExpenseRepository
+public interface IExpenseReadOnlyRepository
 {
-    Task AddExpense(Expense expense);
     Task<List<Expense>> GetAllExpenses();
     Task<Expense?> GetExpenseById(long id);
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CashFlow.Infrastructure.DataAccess.Repositories;
 
-internal class ExpenseRepository : IExpenseRepository
+internal class ExpenseRepository : IExpenseWriteOnlyRepository, IExpenseReadOnlyRepository
 {
     private readonly CashFlowDbContext _dbContext;
 
