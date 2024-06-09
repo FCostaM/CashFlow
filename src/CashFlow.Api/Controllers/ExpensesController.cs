@@ -12,7 +12,7 @@ public class ExpensesController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(ExpenseRegisterResponse), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Register([FromBody] ExpenseRegisterRequest request, [FromServices] IExpenseRegisterUseCase useCase)
+    public async Task<IActionResult> Register([FromBody] ExpenseRequest request, [FromServices] IExpenseRegisterUseCase useCase)
     {
         var response = await useCase.Execute(request);
 

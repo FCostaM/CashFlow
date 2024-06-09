@@ -4,7 +4,7 @@ using FluentValidation;
 
 namespace CashFlow.Application.Validators;
 
-public class ExpenseRegisterValidator : AbstractValidator<ExpenseRegisterRequest>
+public class ExpenseRegisterValidator : AbstractValidator<ExpenseRequest>
 {
     public ExpenseRegisterValidator()
     {
