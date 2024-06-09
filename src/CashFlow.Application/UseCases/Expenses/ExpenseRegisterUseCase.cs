@@ -38,7 +38,7 @@ public class ExpenseRegisterUseCase : IExpenseRegisterUseCase
 
     private void Validate(ExpenseRequest request)
     {
-        var validation = new ExpenseRegisterValidator().Validate(request);
+        var validation = new ExpenseValidator().Validate(request);
 
         if (validation.IsValid == false)
         {

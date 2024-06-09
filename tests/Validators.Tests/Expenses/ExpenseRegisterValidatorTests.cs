@@ -12,7 +12,7 @@ public class ExpenseRegisterValidatorTests
     public void Success()
     {
         //Arrange
-        var validator = new ExpenseRegisterValidator();
+        var validator = new ExpenseValidator();
         var request = ExpenseRegisterRequestBuilder.Build();
 
         //Act
@@ -29,7 +29,7 @@ public class ExpenseRegisterValidatorTests
     public void TitleEmptyFailure(string title)
     {
         //Arrange
-        var validator = new ExpenseRegisterValidator();
+        var validator = new ExpenseValidator();
         var request = ExpenseRegisterRequestBuilder.Build();
         request.Title = title;
 
@@ -52,7 +52,7 @@ public class ExpenseRegisterValidatorTests
     public void AmountInvalidFailure(decimal amount)
     {
         //Arrange
-        var validator = new ExpenseRegisterValidator();
+        var validator = new ExpenseValidator();
         var request = ExpenseRegisterRequestBuilder.Build();
         request.Amount = amount;
 
@@ -72,7 +72,7 @@ public class ExpenseRegisterValidatorTests
     public void FutureDateFailure()
     {
         //Arrange
-        var validator = new ExpenseRegisterValidator();
+        var validator = new ExpenseValidator();
         var request = ExpenseRegisterRequestBuilder.Build();
         request.Date = DateTime.UtcNow.AddDays(1);
 
@@ -92,7 +92,7 @@ public class ExpenseRegisterValidatorTests
     public void PaymentTypeInvalidFailure()
     {
         //Arrange
-        var validator = new ExpenseRegisterValidator();
+        var validator = new ExpenseValidator();
         var request = ExpenseRegisterRequestBuilder.Build();
         request.PaymentType = (PaymentType)700;
 

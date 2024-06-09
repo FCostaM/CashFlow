@@ -6,4 +6,5 @@ public interface IExpenseReadOnlyRepository
 {
     Task<List<Expense>> GetAllExpenses();
     Task<Expense?> GetExpenseById(long id);
+    Task<Expense?> GetExpenseForUpdate(long id);
 }
