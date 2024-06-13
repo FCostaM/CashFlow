@@ -5,19 +5,34 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CashFlow.Application;
 
+/// <summary>
+/// Extension methods for setting up apllication services in the DI container.
+/// </summary>
 public static class DependencyInjectionExtension
 {
+    /// <summary>
+    /// Adds application services to the specified <see cref="IServiceCollection"/>.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
     public static void AddApllicationServices(this IServiceCollection services)
     {
         AddAutoMapper(services);
         AddUseCases(services);
     }
 
+    /// <summary>
+    /// Adds automapper to the service collection.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
     private static void AddAutoMapper(IServiceCollection services)
     {
         services.AddAutoMapper(typeof(AutoMapping));
     }
 
+    /// <summary>
+    /// Adds use cases to the service collection.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
     private static void AddUseCases(IServiceCollection services)
     {
         services.AddScoped<IExpenseRegisterUseCase, ExpenseRegisterUseCase>();
