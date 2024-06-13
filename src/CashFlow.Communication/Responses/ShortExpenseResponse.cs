@@ -1,8 +1,22 @@
 ﻿namespace CashFlow.Communication.Responses;
 
+/// <summary>
+/// Represents a summarized view of an expense.
+/// </summary>
 public class ShortExpenseResponse
 {
-    public int Id { get; set; }
+    /// <summary>
+    /// Represents the name or title of the expense.
+    /// </summary>
     public string Title { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Provides additional details about the expense.
+    /// </summary>
+    public string? Description { get; set; }
+
+    /// <summary>
+    /// Specifies the monetary value of the expense.
+    /// </summary>
     public decimal Amount { get; set; }
 }

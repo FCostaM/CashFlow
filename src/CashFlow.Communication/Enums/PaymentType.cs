@@ -1,5 +1,8 @@
 ﻿namespace CashFlow.Communication.Enums;
 
+/// <summary>
+/// Represents the possible payment methods that can be used for the expense.
+/// </summary>
 public enum PaymentType
 {
     Cash = 1,
