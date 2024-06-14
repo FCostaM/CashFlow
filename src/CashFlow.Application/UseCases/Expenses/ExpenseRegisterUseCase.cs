@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CashFlow.Application.Interfaces;
+using CashFlow.Application.Interfaces.Expenses;
 using CashFlow.Application.Validators;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;

@@ -1,7 +1,7 @@
 ﻿using CashFlow.Communication.Responses;
 using CashFlow.Domain.Entities;
 
-namespace CashFlow.Application.Interfaces;
+namespace CashFlow.Application.Interfaces.Expenses;
 
 /// <summary>
 /// Defines the contract for a use case to retrieve an expense by its ID.

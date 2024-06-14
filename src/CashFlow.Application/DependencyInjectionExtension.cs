@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.Interfaces;
+﻿using CashFlow.Application.Interfaces.Expenses;
 using CashFlow.Application.Mapper;
 using CashFlow.Application.UseCases.Expenses;
 using Microsoft.Extensions.DependencyInjection;

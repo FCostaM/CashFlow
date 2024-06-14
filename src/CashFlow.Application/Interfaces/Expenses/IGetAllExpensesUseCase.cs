@@ -1,6 +1,6 @@
 ﻿using CashFlow.Communication.Responses;
 
-namespace CashFlow.Application.Interfaces;
+namespace CashFlow.Application.Interfaces.Expenses;
 
 /// <summary>
 /// Defines the contract for a use case to retrieve all expenses.

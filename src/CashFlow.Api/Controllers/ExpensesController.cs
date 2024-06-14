@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.Interfaces;
+﻿using CashFlow.Application.Interfaces.Expenses;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
 using Microsoft.AspNetCore.Mvc;

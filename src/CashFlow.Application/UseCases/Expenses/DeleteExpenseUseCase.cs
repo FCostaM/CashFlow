@@ -1,4 +1,4 @@
-﻿using CashFlow.Application.Interfaces;
+﻿using CashFlow.Application.Interfaces.Expenses;
 using CashFlow.Domain.Interfaces;
 using CashFlow.Domain.Interfaces.Repositories.Expenses;
 using CashFlow.Exception.CustomExceptions;
