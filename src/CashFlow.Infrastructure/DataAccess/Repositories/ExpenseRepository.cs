@@ -86,6 +86,22 @@ internal class ExpenseRepository : IExpenseWriteOnlyRepository, IExpenseReadOnly
     }
 
     /// <summary>
+    /// Retrieves a list of expenses filtered by a date range.
+    /// </summary>
+    /// <param name="startDate">The start date of the filter range.</param>
+    /// <param name="endDate">The end date of the filter range.</param>
+    /// <returns>A task that represents the asynchronous operation, containing a list of expenses that fall within the specified date range.</returns>
+    public async Task<List<Expense>> FilterExpenseByDate(DateTime startDate, DateTime endDate)
+    {
+        return await _dbContext.Expenses
+            .AsNoTracking()
+            .Where(expense => expense.Date >= startDate && expense.Date <= endDate)
+            .OrderBy(expense => expense.Date)
+            .ThenBy(expense => expense.Title)
+            .ToListAsync();
+    }
+    
+    /// <summary>
     /// Updates an existing expense in the database.
     /// </summary>
     /// <param name="expense">The expense entity with updated values.</param>

@@ -1,6 +1,8 @@
 ﻿using CashFlow.Application.Interfaces.Expenses;
+using CashFlow.Application.Interfaces.Reports;
 using CashFlow.Application.Mapper;
 using CashFlow.Application.UseCases.Expenses;
+using CashFlow.Application.UseCases.Reports;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CashFlow.Application;
@@ -35,10 +37,14 @@ public static class DependencyInjectionExtension
     /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
     private static void AddUseCases(IServiceCollection services)
     {
+        // Expenses
         services.AddScoped<IExpenseRegisterUseCase, ExpenseRegisterUseCase>();
         services.AddScoped<IGetAllExpensesUseCase, GetAllExpensesUseCase>();
         services.AddScoped<IGetExpenseByIdUseCase, GetExpenseByIdUseCase>();
         services.AddScoped<IUpdateExpenseUseCase, UpdateExpenseUseCase>();
         services.AddScoped<IDeleteExpenseUseCase, DeleteExpenseUseCase>();
+
+        // Reports
+        services.AddScoped<IGenerateExpensesReportExcelUseCase, GenerateExpensesReportExcelUseCase>();
     }    
 }
