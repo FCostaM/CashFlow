@@ -1,5 +1,6 @@
 ﻿using CashFlow.Application.Interfaces.Reports;
 using CashFlow.Domain.Enums;
+using CashFlow.Domain.Extensions;
 using CashFlow.Domain.Interfaces.Repositories.Expenses;
 using CashFlow.Domain.Resources.ExpenseResource;
 using CashFlow.Domain.Resources.PaymentTypeResource;
@@ -57,7 +58,7 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
             {
                 worksheet.Cell($"A{raw}").Value = expense.Title;
                 worksheet.Cell($"B{raw}").Value = expense.Date;
-                worksheet.Cell($"C{raw}").Value = PaymentTypeToString(expense.PaymentType);
+                worksheet.Cell($"C{raw}").Value = expense.PaymentType.PaymentTypeToString();
 
                 worksheet.Cell($"D{raw}").Value = expense.Amount;
                 worksheet.Cell($"D{raw}").Style.NumberFormat.Format = "#,##0.00";
@@ -97,23 +98,5 @@ public class GenerateExpensesReportExcelUseCase : IGenerateExpensesReportExcelUs
         worksheet.Cell("C1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
         worksheet.Cell("D1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Right);
         worksheet.Cell("E1").Style.Alignment.SetHorizontal(XLAlignmentHorizontalValues.Center);
-    }
-
-    /// <summary>
-    /// Converts a <see cref="PaymentType"/> enum to its corresponding string representation.
-    /// </summary>
-    /// <param name="type">The payment type to convert.</param>
-    /// <returns>The string representation of the payment type.</returns>
-    private string PaymentTypeToString(PaymentType type)
-    {
-        return type switch
-        {
-            PaymentType.Cash => PaymentTypeResource.CASH,
-            PaymentType.CreditCard => PaymentTypeResource.CREDIT_CARD,
-            PaymentType.DebitCard => PaymentTypeResource.DEBIT_CARD,
-            PaymentType.BankTransfer => PaymentTypeResource.BANK_TRANSFER,
-            PaymentType.Pix => PaymentTypeResource.PIX,
-            _ => string.Empty
-        };
     }
 }
