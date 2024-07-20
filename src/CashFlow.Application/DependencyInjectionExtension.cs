@@ -46,5 +46,6 @@ public static class DependencyInjectionExtension
 
         // Reports
         services.AddScoped<IGenerateExpensesReportExcelUseCase, GenerateExpensesReportExcelUseCase>();
+        services.AddScoped<IGenerateExpensesReportPdfUseCase, GenerateExpensesReportPdfUseCase>();
     }    
 }

@@ -2,6 +2,10 @@ using CashFlow.Api.Filters;
 using CashFlow.Api.Middlewares;
 using CashFlow.Application;
 using CashFlow.Infrastructure;
+using QuestPDF.Infrastructure;
+
+// please kindly ensure what license is appropriate for your project
+QuestPDF.Settings.License = LicenseType.Community;
 
 var builder = WebApplication.CreateBuilder(args);
 
