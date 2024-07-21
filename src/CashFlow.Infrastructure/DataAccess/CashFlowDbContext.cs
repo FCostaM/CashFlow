@@ -9,6 +9,11 @@ namespace CashFlow.Infrastructure.DataAccess;
 public class CashFlowDbContext : DbContext
 {
     /// <summary>
+    /// Represents the DbSet of users in the database.
+    /// </summary>
+    public DbSet<User> Users { get; set; }
+
+    /// <summary>
     /// Represents the DbSet of expenses in the database.
     /// </summary>
     public DbSet<Expense> Expenses { get; set; }

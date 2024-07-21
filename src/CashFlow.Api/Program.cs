@@ -2,6 +2,7 @@ using CashFlow.Api.Filters;
 using CashFlow.Api.Middlewares;
 using CashFlow.Application;
 using CashFlow.Infrastructure;
+using CashFlow.Infrastructure.Migrations;
 using QuestPDF.Infrastructure;
 
 // please kindly ensure what license is appropriate for your project
@@ -37,5 +38,9 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+//Performs database migrations when running the application.
+await using var scope = app.Services.CreateAsyncScope();
+await DataBaseMigration.MigrateDatabase(scope.ServiceProvider);
 
 app.Run();
