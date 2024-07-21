@@ -36,4 +36,14 @@ public class Expense
     /// Represents the payment method used for the expense.
     /// </summary>
     public PaymentType PaymentType { get; set; }
+
+    /// <summary>
+    /// Represents the unique identifier of the user related to the expense.
+    /// </summary>
+    public long UserId { get; set; }
+
+    /// <summary>
+    /// Represents the user related to the expense.
+    /// </summary>
+    public User User { get; set; } = default!;
 }
