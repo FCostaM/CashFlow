@@ -1,4 +1,4 @@
-﻿using CashFlow.Communication.Responses;
+﻿using CashFlow.Communication.Responses.Expenses;
 using CashFlow.Domain.Entities;
 
 namespace CashFlow.Application.Interfaces.Expenses;

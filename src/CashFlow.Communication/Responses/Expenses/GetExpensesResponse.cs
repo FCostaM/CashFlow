@@ -1,4 +1,4 @@
-﻿namespace CashFlow.Communication.Responses;
+﻿namespace CashFlow.Communication.Responses.Expenses;
 
 /// <summary>
 /// Represents the response containing a list of expenses.

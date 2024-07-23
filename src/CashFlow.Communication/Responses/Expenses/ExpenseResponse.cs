@@ -1,6 +1,6 @@
 ﻿using CashFlow.Communication.Enums;
 
-namespace CashFlow.Communication.Responses;
+namespace CashFlow.Communication.Responses.Expenses;
 
 /// <summary>
 /// Represents the response entity of an expense.

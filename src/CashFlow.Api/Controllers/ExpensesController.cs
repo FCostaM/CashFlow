@@ -1,6 +1,7 @@
 ﻿using CashFlow.Application.Interfaces.Expenses;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
+using CashFlow.Communication.Responses.Expenses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.Api.Controllers;
