@@ -25,6 +25,7 @@ public static class DependencyInjectionExtension
     {
         AddDbContext(services, configuration);
         AddRepositories(services);
+        AddSecurity(services);
     }
 
     /// <summary>
@@ -57,5 +58,14 @@ public static class DependencyInjectionExtension
         //Expense
         services.AddScoped<IExpenseReadOnlyRepository, ExpenseRepository>();
         services.AddScoped<IExpenseWriteOnlyRepository, ExpenseRepository>();
+    }
+
+    /// <summary>
+    /// Adds security services to the service collection.
+    /// </summary>
+    /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
+    private static void AddSecurity(this IServiceCollection services)
+    {
+        services.AddScoped<IPasswordEncripter, PasswordEncripter>();
     }
 }
