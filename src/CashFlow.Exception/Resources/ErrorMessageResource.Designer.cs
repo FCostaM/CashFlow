@@ -70,11 +70,101 @@ namespace CashFlow.Exception.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a This email is already being used..
+        /// </summary>
+        public static string EMAIL_ALREADY_REGISTERED {
+            get {
+                return ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The email cannot be empty..
+        /// </summary>
+        public static string EMPTY_EMAIL {
+            get {
+                return ResourceManager.GetString("EMPTY_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The name cannot be empty..
+        /// </summary>
+        public static string EMPTY_NAME {
+            get {
+                return ResourceManager.GetString("EMPTY_NAME", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password cannot be empty..
+        /// </summary>
+        public static string EMPTY_PASSWORD {
+            get {
+                return ResourceManager.GetString("EMPTY_PASSWORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Expense not found.
         /// </summary>
         public static string EXPENSE_NOT_FOUND {
             get {
                 return ResourceManager.GetString("EXPENSE_NOT_FOUND", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The email is invalid..
+        /// </summary>
+        public static string INVALID_EMAIL {
+            get {
+                return ResourceManager.GetString("INVALID_EMAIL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password must be at least 8 characters long..
+        /// </summary>
+        public static string PASSWORD_LENGTH_UNDER_8 {
+            get {
+                return ResourceManager.GetString("PASSWORD_LENGTH_UNDER_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password must contain at least one lowercase letter..
+        /// </summary>
+        public static string PASSWORD_WITHOUT_LOWERCASE_LETTER {
+            get {
+                return ResourceManager.GetString("PASSWORD_WITHOUT_LOWERCASE_LETTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password must contain at least one number..
+        /// </summary>
+        public static string PASSWORD_WITHOUT_NUMBER {
+            get {
+                return ResourceManager.GetString("PASSWORD_WITHOUT_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password must contain at least one special character..
+        /// </summary>
+        public static string PASSWORD_WITHOUT_SPECIAL_CHARACTER {
+            get {
+                return ResourceManager.GetString("PASSWORD_WITHOUT_SPECIAL_CHARACTER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The password must contain at least one uppercase letter..
+        /// </summary>
+        public static string PASSWORD_WITHOUT_UPPERCASE_LETTER {
+            get {
+                return ResourceManager.GetString("PASSWORD_WITHOUT_UPPERCASE_LETTER", resourceCulture);
             }
         }
         

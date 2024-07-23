@@ -120,8 +120,35 @@
   <data name="AMOUNT_UNDER_ZERO" xml:space="preserve">
     <value>Valor deve ser maior que zero</value>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Este e-mail já está sendo usado.</value>
+  </data>
+  <data name="EMPTY_EMAIL" xml:space="preserve">
+    <value>O e-mail não pode ser vazio.</value>
+  </data>
+  <data name="EMPTY_NAME" xml:space="preserve">
+    <value>O nome não pode ser vazio.</value>
+  </data>
   <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
     <value>Despesa não encontrada</value>
+  </data>
+  <data name="INVALID_EMAIL" xml:space="preserve">
+    <value>O e-mail é inválido.</value>
+  </data>
+  <data name="PASSWORD_LENGTH_UNDER_8" xml:space="preserve">
+    <value>A senha deve ter pelo menos 8 caracteres.</value>
+  </data>
+  <data name="PASSWORD_WITHOUT_LOWERCASE_LETTER" xml:space="preserve">
+    <value>A senha deve conter pelo menos uma letra minúscula.</value>
+  </data>
+  <data name="PASSWORD_WITHOUT_NUMBER" xml:space="preserve">
+    <value>A senha deve conter pelo menos um número.</value>
+  </data>
+  <data name="PASSWORD_WITHOUT_SPECIAL_CHARACTER" xml:space="preserve">
+    <value>A senha deve conter pelo menos um caracter especial.</value>
+  </data>
+  <data name="PASSWORD_WITHOUT_UPPERCASE_LETTER" xml:space="preserve">
+    <value>A senha deve conter pelo menos uma letra maiúscula.</value>
   </data>
   <data name="PAST_DATE_EXPENSE" xml:space="preserve">
     <value>Despesa não pode ser de data futura</value>
