@@ -45,6 +45,11 @@ public class UserRegisterUseCase : IUserRegisterUseCase
     private readonly IUnitOfWork _unitOfWork;
 
     /// <summary>
+    /// Represents the token generator for generating JWT tokens.
+    /// </summary>
+    private readonly ITokenGenerator _tokenGenerator;
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="UserRegisterUseCase"/> class with the specified dependencies.
     /// </summary>
     /// <param name="encripter">The password encripter.</param>
@@ -52,13 +57,16 @@ public class UserRegisterUseCase : IUserRegisterUseCase
     /// <param name="writeRepository">The user write-only repository.</param>
     /// <param name="mapper">The mapper for converting request models to entities and vice versa.</param>
     /// <param name="unitOfWork">The unit of work to manage transaction scope.</param>
-    public UserRegisterUseCase(IPasswordEncripter encripter, IUserReadOnlyRepository readRepository, IUserWriteOnlyRepository writeRepository, IMapper mapper, IUnitOfWork unitOfWork)
+    /// <param name="tokenGenerator">The token generator for creating JWT tokens.</param>
+    public UserRegisterUseCase(IPasswordEncripter encripter, IUserReadOnlyRepository readRepository, IUserWriteOnlyRepository writeRepository, 
+        IMapper mapper, IUnitOfWork unitOfWork, ITokenGenerator tokenGenerator)
     {
         _encripter = encripter;
         _readRepository = readRepository;
         _writeRepository = writeRepository;
         _mapper = mapper;
         _unitOfWork = unitOfWork;
+        _tokenGenerator = tokenGenerator;
     }
 
     /// <summary>
@@ -82,6 +90,7 @@ public class UserRegisterUseCase : IUserRegisterUseCase
         return new UserRegisterResponse
         {
             Name = user.Name,
+            Token = _tokenGenerator.GenerateToken(user)
         };
     }
 

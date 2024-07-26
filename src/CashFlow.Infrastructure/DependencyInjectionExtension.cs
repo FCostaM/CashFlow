@@ -25,7 +25,7 @@ public static class DependencyInjectionExtension
     {
         AddDbContext(services, configuration);
         AddRepositories(services);
-        AddSecurity(services);
+        AddSecurity(services, configuration);
     }
 
     /// <summary>
@@ -64,8 +64,16 @@ public static class DependencyInjectionExtension
     /// Adds security services to the service collection.
     /// </summary>
     /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
-    private static void AddSecurity(this IServiceCollection services)
+    /// <param name="configuration">The <see cref="IConfiguration"/> from which to retrieve the connection string.</param>
+    private static void AddSecurity(this IServiceCollection services, IConfiguration configuration)
     {
+        //Password encriptor
         services.AddScoped<IPasswordEncripter, PasswordEncripter>();
+
+        //Access token
+        var expiresAt = configuration.GetValue<uint>("Settings:JWT:ExpiresAt");
+        var key = configuration.GetValue<string>("Settings:JWT:SigningKey");
+
+        services.AddScoped<ITokenGenerator>(config => new JwtTokenGenerator(expiresAt, key!));
     }
 }
