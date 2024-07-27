@@ -1,4 +1,6 @@
-﻿namespace CashFlow.Domain.Interfaces.Repositories.Users;
+﻿using CashFlow.Domain.Entities;
+
+namespace CashFlow.Domain.Interfaces.Repositories.Users;
 
 /// <summary>
 /// Provides read-only operations for managing users.
@@ -12,4 +14,13 @@ public interface IUserReadOnlyRepository
     /// <returns>A task that represents the asynchronous operation, 
     /// containing true if an active user with the specified email exists; otherwise, false.</returns>
     Task<bool> ExistActiveUserWithEmail(string email);
+
+    /// <summary>
+    /// Retrieves a user by their email.
+    /// </summary>
+    /// <param name="email">The email of the user to be retrieved.</param>
+    /// <returns>
+    /// A task that represents the asynchronous operation, containing the user entity if found; otherwise, null.
+    /// </returns>
+    Task<User?> GetUserByEmail(string email);
 }
