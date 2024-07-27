@@ -13,5 +13,5 @@ public interface ILoginUseCase
     /// </summary>
     /// <param name="request">The request containing the user login information.</param>
     /// <returns>The response containing the logged-in user details.</returns>
-    Task<UserRegisterResponse> Execute(LoginRequest request);
+    Task<UserResponse> Execute(LoginRequest request);
 }

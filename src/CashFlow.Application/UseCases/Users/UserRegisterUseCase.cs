@@ -74,7 +74,7 @@ public class UserRegisterUseCase : IUserRegisterUseCase
     /// </summary>
     /// <param name="request">The request containing the user information.</param>
     /// <returns>The response containing the registered user details.</returns>
-    public async Task<UserRegisterResponse> Execute(UserRegisterRequest request)
+    public async Task<UserResponse> Execute(UserRegisterRequest request)
     {
         await Validate(request);
 
@@ -87,7 +87,7 @@ public class UserRegisterUseCase : IUserRegisterUseCase
 
         await _unitOfWork.Commit();
 
-        return new UserRegisterResponse
+        return new UserResponse
         {
             Name = user.Name,
             Token = _tokenGenerator.GenerateToken(user)

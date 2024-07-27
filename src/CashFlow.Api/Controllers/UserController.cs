@@ -10,13 +10,13 @@ namespace CashFlow.Api.Controllers;
 public class UserController : ControllerBase
 {
     /// <summary>
-    /// 
+    /// Receives a request to register a new user.
     /// </summary>
-    /// <param name="request"></param>
-    /// <param name="useCase"></param>
-    /// <returns></returns>
+    /// <param name="request">The request containing the user registration information.</param>
+    /// <param name="useCase">The use case for registering a new user.</param>
+    /// <returns>A response containing the registered user details or an error response.</returns>
     [HttpPost]
-    [ProducesResponseType(typeof(UserRegisterResponse), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(UserResponse), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Register([FromBody] UserRegisterRequest request, [FromServices] IUserRegisterUseCase useCase)
     {

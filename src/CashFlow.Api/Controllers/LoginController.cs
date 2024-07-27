@@ -1,6 +1,7 @@
 ﻿using CashFlow.Application.Interfaces.Login;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Responses;
+using CashFlow.Communication.Responses.Users;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CashFlow.Api.Controllers;
@@ -15,7 +16,7 @@ public class LoginController : ControllerBase
     /// <param name="useCase">The use case to execute the login logic.</param>
     /// <returns>The response containing the user details if successful, or an error response if unauthorized.</returns>
     [HttpPost]
-    [ProducesResponseType(typeof(UserRegisterRequest), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(UserResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> Login([FromBody] LoginRequest request, [FromServices] ILoginUseCase useCase)
     {

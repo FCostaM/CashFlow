@@ -13,5 +13,5 @@ public interface IUserRegisterUseCase
     /// </summary>
     /// <param name="request">The request containing the user information.</param>
     /// <returns>The response containing the registered user details.</returns>
-    public Task<UserRegisterResponse> Execute(UserRegisterRequest request);
+    public Task<UserResponse> Execute(UserRegisterRequest request);
 }

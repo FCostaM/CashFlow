@@ -1,9 +1,9 @@
 ﻿namespace CashFlow.Communication.Responses.Users;
 
 /// <summary>
-/// Represents the response after registering a new user.
+/// Represents the deafult response for a user.
 /// </summary>
-public class UserRegisterResponse
+public class UserResponse
 {
     /// <summary>
     /// Represents the user's full name.

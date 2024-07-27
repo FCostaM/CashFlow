@@ -46,7 +46,7 @@ public class LoginUseCase : ILoginUseCase
     /// <param name="request">The request containing the user login information.</param>
     /// <returns>The response containing the logged-in user details.</returns>
     /// <exception cref="InvalidLoginException">Thrown when the login credentials are invalid or when the password does not match.</exception>
-    public async Task<UserRegisterResponse> Execute(LoginRequest request)
+    public async Task<UserResponse> Execute(LoginRequest request)
     {
         var user = await _repository.GetUserByEmail(request.Email);
 
@@ -62,7 +62,7 @@ public class LoginUseCase : ILoginUseCase
             throw new InvalidLoginException();
         }
 
-        return new UserRegisterResponse
+        return new UserResponse
         {
             Name = user.Name,
             Token = _tokenGenerator.GenerateToken(user)
