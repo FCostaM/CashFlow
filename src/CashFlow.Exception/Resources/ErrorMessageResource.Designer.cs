@@ -124,6 +124,15 @@ namespace CashFlow.Exception.Resources {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Invalid email and/or password..
+        /// </summary>
+        public static string INVALID_LOGIN {
+            get {
+                return ResourceManager.GetString("INVALID_LOGIN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The password must be at least 8 characters long..
         /// </summary>
         public static string PASSWORD_LENGTH_UNDER_8 {
