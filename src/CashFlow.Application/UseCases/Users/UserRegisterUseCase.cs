@@ -22,7 +22,7 @@ public class UserRegisterUseCase : IUserRegisterUseCase
     /// <summary>
     /// Represents the password encryptor.
     /// </summary>
-    private readonly IPasswordEncripter _encripter;
+    private readonly IPasswordSecurity _encripter;
 
     /// <summary>
     /// Represents the repository for read-only operations on users.
@@ -58,7 +58,7 @@ public class UserRegisterUseCase : IUserRegisterUseCase
     /// <param name="mapper">The mapper for converting request models to entities and vice versa.</param>
     /// <param name="unitOfWork">The unit of work to manage transaction scope.</param>
     /// <param name="tokenGenerator">The token generator for creating JWT tokens.</param>
-    public UserRegisterUseCase(IPasswordEncripter encripter, IUserReadOnlyRepository readRepository, IUserWriteOnlyRepository writeRepository, 
+    public UserRegisterUseCase(IPasswordSecurity encripter, IUserReadOnlyRepository readRepository, IUserWriteOnlyRepository writeRepository, 
         IMapper mapper, IUnitOfWork unitOfWork, ITokenGenerator tokenGenerator)
     {
         _encripter = encripter;
@@ -79,7 +79,7 @@ public class UserRegisterUseCase : IUserRegisterUseCase
         await Validate(request);
 
         var user = _mapper.Map<User>(request);
-        user.Password = _encripter.Encrypy(request.Password);
+        user.Password = _encripter.EncrypytPassword(request.Password);
         user.UserIdentifier = Guid.NewGuid();
         user.Role = Roles.TEAM_MEMBER;
 

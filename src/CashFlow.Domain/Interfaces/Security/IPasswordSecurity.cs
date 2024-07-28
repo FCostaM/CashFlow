@@ -1,22 +1,16 @@
-﻿using CashFlow.Domain.Interfaces.Security;
-using BC = BCrypt.Net.BCrypt;
-
-namespace CashFlow.Infrastructure.Security;
+﻿namespace CashFlow.Domain.Interfaces.Security;
 
 /// <summary>
-/// Provides methods for encrypting passwords using BCrypt.
+/// Provides an interface for password security.
 /// </summary>
-internal class PasswordEncripter : IPasswordEncripter
+public interface IPasswordSecurity
 {
     /// <summary>
-    /// Encrypts the given password using BCrypt.
+    /// Encrypts the given password.
     /// </summary>
     /// <param name="password">The plain text password to encrypt.</param>
     /// <returns>The encrypted password.</returns>
-    public string Encrypy(string password)
-    {
-        return BC.HashPassword(password);
-    }
+    string EncrypytPassword(string password);
 
     /// <summary>
     /// Verifies if the provided password matches the hashed password.
@@ -24,8 +18,5 @@ internal class PasswordEncripter : IPasswordEncripter
     /// <param name="password">The plain text password to verify.</param>
     /// <param name="hash">The hashed password to compare against.</param>
     /// <returns>True if the password matches the hash; otherwise, false.</returns>
-    public bool DoesPasswordMatch(string password, string hash)
-    {
-        return BC.Verify(password, hash);
-    }
+    bool DoesPasswordMatch(string password, string hash);
 }

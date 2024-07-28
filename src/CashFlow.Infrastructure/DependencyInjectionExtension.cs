@@ -68,7 +68,7 @@ public static class DependencyInjectionExtension
     private static void AddSecurity(this IServiceCollection services, IConfiguration configuration)
     {
         //Password encriptor
-        services.AddScoped<IPasswordEncripter, PasswordEncripter>();
+        services.AddScoped<IPasswordSecurity, PasswordSecurity>();
 
         //Access token
         var expiresAt = configuration.GetValue<uint>("Settings:JWT:ExpiresAt");

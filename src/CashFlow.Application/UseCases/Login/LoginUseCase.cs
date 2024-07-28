@@ -20,7 +20,7 @@ public class LoginUseCase : ILoginUseCase
     /// <summary>
     /// Represents the password encryption and verification service.
     /// </summary>
-    private readonly IPasswordEncripter _passwordSecurity;
+    private readonly IPasswordSecurity _passwordSecurity;
 
     /// <summary>
     /// Represents the token generator for generating JWT tokens.
@@ -33,7 +33,7 @@ public class LoginUseCase : ILoginUseCase
     /// <param name="repository">The user read-only repository.</param>
     /// <param name="security"></param>
     /// <param name="tokenGenerator">The token generator for creating JWT tokens.</param>
-    public LoginUseCase(IUserReadOnlyRepository repository, IPasswordEncripter security, ITokenGenerator tokenGenerator)
+    public LoginUseCase(IUserReadOnlyRepository repository, IPasswordSecurity security, ITokenGenerator tokenGenerator)
     {
         _repository = repository;
         _passwordSecurity = security;
