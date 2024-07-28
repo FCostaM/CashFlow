@@ -1,4 +1,5 @@
 ﻿using CashFlow.Application.Interfaces.Reports;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
@@ -7,6 +8,7 @@ namespace CashFlow.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ReportsController : ControllerBase
     {
         /// <summary>
